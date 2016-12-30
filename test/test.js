@@ -20,4 +20,13 @@ describe('react map', () => {
     });
   });
 
+  it('should list all class names', () => {
+    return mapper.getClassNames('./fixtures/Tabs.js').then(classNames => {
+      expect(classNames.length).toBe(3);
+      expect(classNames).toInclude({name: 'tabs'});
+      expect(classNames).toInclude({name: 'header'});
+      expect(classNames).toInclude({name: 'header--large'});
+    });
+  });
+
 });

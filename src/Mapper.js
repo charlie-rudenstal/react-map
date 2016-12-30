@@ -1,4 +1,5 @@
 import fs from 'mz/fs';
+import { regMatch } from './utils';
 
 function getComponents(dirPath) {
   return fs.readdir(dirPath).then(listing => {
@@ -23,7 +24,21 @@ function getChildren(filePath) {
   });
 }
 
+function getClassNames(filePath) {
+  return fs.readFile(filePath, 'utf-8').then(content => {
+    const classValues = regMatch(/className="([^"]+)/g, content);
+    const classNames = classValues.reduce((names, curValue) => {
+      return names.concat(curValue.split(' '));
+    }, []);
+    const uniqueClassNames = [...new Set(classNames)];
+    return uniqueClassNames.map(name => {
+      return { name };
+    })
+  });
+}
+
 export default {
   getComponents,
-  getChildren
+  getChildren,
+  getClassNames
 }
