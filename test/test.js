@@ -29,4 +29,12 @@ describe('react map', () => {
     });
   });
 
+  it('should list all dependencies', () => {
+    return mapper.getDependencies('./fixtures/Tabs.js').then(dependencies => {
+      expect(dependencies.length).toBe(2);
+      expect(dependencies).toInclude({name: 'React', path: 'react'});
+      expect(dependencies).toInclude({name: 'Tab', path: './Tab'});
+    });
+  });
+
 });

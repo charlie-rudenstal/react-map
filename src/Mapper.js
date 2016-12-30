@@ -37,8 +37,21 @@ function getClassNames(filePath) {
   });
 }
 
+function getDependencies(filePath) {
+  return fs.readFile(filePath, 'utf-8').then(content => {
+    const dependencies = regMatch(/import ([^\s]+) from '([^']+)';/g, content, true);
+    return dependencies.map(dependency => {
+      return {
+        name: dependency[1],
+        path: dependency[2]
+      };
+    })
+  });
+}
+
 export default {
   getComponents,
   getChildren,
-  getClassNames
+  getClassNames,
+  getDependencies
 }
