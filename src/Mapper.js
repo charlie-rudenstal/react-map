@@ -1,20 +1,21 @@
 import fs from 'mz/fs';
-import { regMatch } from './utils';
+import { regMatch, memoize } from './utils';
+const readFileCached = memoize(fs.readFile);
 
-function getComponents(dirPath) {
-  return fs.readdir(dirPath).then(listing => {
+function getComponents(dirpath) {
+  return fs.readdir(dirpath).then(listing => {
     return listing.map(filename => {
       const name = filename.slice(0, filename.lastIndexOf('.'));
       return {
         name,
-        path: `${dirPath}/${filename}`
+        path: `${dirpath}/${filename}`
       };
     })
   });
 }
 
-function getChildren(filePath) {
-  return fs.readFile(filePath, 'utf-8').then(content => {
+function getChildren(filepath) {
+  return readFileCached(filepath, 'utf-8').then(content => {
     const tags = content.match(/<([^/][^>]+)>/g);
     const tagNames = tags.map(tag => tag.slice(1, tag.indexOf(' ')));
     const uniqueTagNames = [...new Set(tagNames)];
@@ -24,8 +25,8 @@ function getChildren(filePath) {
   });
 }
 
-function getClassNames(filePath) {
-  return fs.readFile(filePath, 'utf-8').then(content => {
+function getClassNames(filepath) {
+  return readFileCached(filepath, 'utf-8').then(content => {
     const classValues = regMatch(/className="([^"]+)/g, content);
     const classNames = classValues.reduce((names, curValue) => {
       return names.concat(curValue.split(' '));
@@ -37,8 +38,8 @@ function getClassNames(filePath) {
   });
 }
 
-function getDependencies(filePath) {
-  return fs.readFile(filePath, 'utf-8').then(content => {
+function getDependencies(filepath) {
+  return readFileCached(filepath, 'utf-8').then(content => {
     const dependencies = regMatch(/import ([^\s]+) from '([^']+)';/g, content, true);
     return dependencies.map(dependency => {
       return {

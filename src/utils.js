@@ -1,3 +1,5 @@
+import fs from 'mz/fs';
+
 /**
  * regMatch
  * Will return multiple matches containing
@@ -10,4 +12,15 @@ export function regMatch(pattern, string, allGroups) {
     matches.push(allGroups ? match : match[1]);
   }
   return matches;
+}
+
+export function memoize(fn) {
+  let cache = new Map();
+  return (...args) => {
+    const key = JSON.stringify(args);
+    if (!cache.has(key)) {
+      cache.set(key, fn(...args));
+    }
+    return cache.get(key);
+  }
 }
