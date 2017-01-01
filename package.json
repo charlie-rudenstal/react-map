@@ -4,20 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node dist/index.js",
-    "build": "babel src -d dist",
-    "test": "mocha --compilers js:babel-register"
+    "start": "npm run build && node dist/server.bundle.js",
+    "build": "webpack",
+    "test": "mocha --compilers js:babel-register server/test"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
     "expect": "^1.20.2",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "webpack": "^1.14.0"
   },
   "dependencies": {
-    "mz": "^2.6.0"
+    "express": "^4.14.0",
+    "mz": "^2.6.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   }
 }

@@ -2,18 +2,20 @@ import expect, { createSpy } from 'expect';
 import mapper from '../src/Mapper';
 import { memoize } from '../src/utils';
 
+const fixturesPath = 'server/test/fixtures';
+
 describe('react map', () => {
   it('should list all components', () => {
-    return mapper.getComponents('./fixtures').then(components => {
+    return mapper.getComponents(fixturesPath).then(components => {
       expect(components.length).toBe(3);
-      expect(components).toInclude({name: 'Button', path: './fixtures/Button.js'});
-      expect(components).toInclude({name: 'Tabs', path: './fixtures/Tabs.js'});
-      expect(components).toInclude({name: 'Tab', path: './fixtures/Tab.js'});
+      expect(components).toInclude({name: 'Button', path: `${fixturesPath}/Button.js`});
+      expect(components).toInclude({name: 'Tabs', path: `${fixturesPath}/Tabs.js`});
+      expect(components).toInclude({name: 'Tab', path: `${fixturesPath}/Tab.js`});
     })
   });
 
   it('should list all child components', () => {
-    return mapper.getChildren('./fixtures/Tabs.js').then(children => {
+    return mapper.getChildren(`${fixturesPath}/Tabs.js`).then(children => {
       expect(children.length).toBe(2);
       expect(children).toInclude({name: 'div'});
       expect(children).toInclude({name: 'Tab'});
@@ -21,7 +23,7 @@ describe('react map', () => {
   });
 
   it('should list all class names', () => {
-    return mapper.getClassNames('./fixtures/Tabs.js').then(classNames => {
+    return mapper.getClassNames(`${fixturesPath}/Tabs.js`).then(classNames => {
       expect(classNames.length).toBe(3);
       expect(classNames).toInclude({name: 'tabs'});
       expect(classNames).toInclude({name: 'header'});
@@ -30,7 +32,7 @@ describe('react map', () => {
   });
 
   it('should list all dependencies', () => {
-    return mapper.getDependencies('./fixtures/Tabs.js').then(dependencies => {
+    return mapper.getDependencies(`${fixturesPath}/Tabs.js`).then(dependencies => {
       expect(dependencies.length).toBe(2);
       expect(dependencies).toInclude({name: 'React', path: 'react'});
       expect(dependencies).toInclude({name: 'Tab', path: './Tab'});
