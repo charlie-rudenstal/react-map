@@ -10,9 +10,9 @@ describe('api', () => {
       .expect(200,
       {
         components: [
-          { name: "Button", path: "server/test/fixtures/Button.js" },
-          { name: "Tab", path: "server/test/fixtures/Tab.js" },
-          { name: "Tabs", path: "server/test/fixtures/Tabs.js" }
+          { name: "Button", path: "Button.js" },
+          { name: "Tab", path: "Tab.js" },
+          { name: "Tabs", path: "Tabs.js" }
         ]
       }, done);
   })

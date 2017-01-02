@@ -1,12 +1,10 @@
 import mapper from './Mapper';
 import express from 'express';
 const api = express();
-const componentsPath = "server/test/fixtures";
 
 api.get('/components', (req,res) => {
-  mapper.getComponents(componentsPath)
+  mapper.getComponents()
   .catch(error => {
-    console.log(error);
     res.status(500).json({error});
   })
   .then(components => {
@@ -15,7 +13,7 @@ api.get('/components', (req,res) => {
 })
 
 api.get('/component/:path(*)', (req, res) => {
-  const path = `${componentsPath}/${req.params.path}`;
+  const path = req.params.path;
   const name = path.slice(path.lastIndexOf('/') + 1, path.lastIndexOf('.'));
   Promise.all([
     mapper.getDependencies(path),

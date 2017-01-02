@@ -1,21 +1,22 @@
 import fs from 'mz/fs';
 import { regMatch, memoize } from './utils';
 const readFileCached = memoize(fs.readFile);
+const basePath = "server/test/fixtures";
 
-function getComponents(dirpath) {
-  return fs.readdir(dirpath).then(listing => {
+function getComponents() {
+  return fs.readdir(basePath).then(listing => {
     return listing.map(filename => {
       const name = filename.slice(0, filename.lastIndexOf('.'));
       return {
         name,
-        path: `${dirpath}/${filename}`
+        path: `${filename}`
       };
     })
   });
 }
 
 function getChildren(filepath) {
-  return readFileCached(filepath, 'utf-8').then(content => {
+  return readFileCached(`${basePath}/${filepath}`, 'utf-8').then(content => {
     const tags = content.match(/<([^/][^>]+)>/g);
     const tagNames = tags.map(tag => tag.slice(1, tag.indexOf(' ')));
     const uniqueTagNames = [...new Set(tagNames)];
@@ -26,7 +27,7 @@ function getChildren(filepath) {
 }
 
 function getClassNames(filepath) {
-  return readFileCached(filepath, 'utf-8').then(content => {
+  return readFileCached(`${basePath}/${filepath}`, 'utf-8').then(content => {
     const classValues = regMatch(/className="([^"]+)/g, content);
     const classNames = classValues.reduce((names, curValue) => {
       return names.concat(curValue.split(' '));
@@ -39,7 +40,7 @@ function getClassNames(filepath) {
 }
 
 function getDependencies(filepath) {
-  return readFileCached(filepath, 'utf-8').then(content => {
+  return readFileCached(`${basePath}/${filepath}`, 'utf-8').then(content => {
     const dependencies = regMatch(/import ([^\s]+) from '([^']+)';/g, content, true);
     return dependencies.map(dependency => {
       return {
