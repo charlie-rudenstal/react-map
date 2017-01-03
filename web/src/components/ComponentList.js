@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class ComponentList extends React.Component {
 
@@ -21,9 +22,11 @@ class ComponentList extends React.Component {
         <div>ComponentList</div>
         <ul>
           {this.state.components.map(component => (
-            <div key={component.name}>
-              {component.name}
-            </div>
+            <li key={component.name}>
+              <Link to={`/component/${component.name}`}>
+                {component.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </div>

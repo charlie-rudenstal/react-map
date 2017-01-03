@@ -1,7 +1,7 @@
 import React from 'react';
 import ComponentList from './ComponentList';
 
-function Root() {
+function IndexPage() {
   return (
     <div>
       <ComponentList />
@@ -9,4 +9,4 @@ function Root() {
   );
 }
 
-export default Root;
+export default IndexPage;

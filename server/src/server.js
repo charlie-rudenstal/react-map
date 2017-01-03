@@ -2,7 +2,11 @@ import api from './api';
 import express from 'express';
 const app = express();
 
-app.get('/', (req, res) => res.sendFile('index.html', {root: 'server/src'}));
+const sendWebPage = (req, res) =>
+  res.sendFile('index.html', {root: 'server/src'});
+
+app.get('/', sendWebPage);
+app.get('/component/*', sendWebPage);
 app.get('/app.js', (req, res) => res.sendFile('web.bundle.js', {root: 'dist'}));
 app.use('/api', api);
 
