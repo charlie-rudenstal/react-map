@@ -23,7 +23,7 @@ class ComponentList extends React.Component {
         <ul>
           {this.state.components.map(component => (
             <li key={component.name}>
-              <Link to={`/component/${component.name}`}>
+              <Link to={`/component/${component.path}`}>
                 {component.name}
               </Link>
             </li>

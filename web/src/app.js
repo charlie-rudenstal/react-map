@@ -9,7 +9,7 @@ ReactDom.render((
   <Router history={browserHistory}>
     <Route path="/" component={RootPage}>
       <IndexRoute component={IndexPage} />
-      <Route path="component/:name" component={ComponentPage} />
+      <Route path="component/*" component={ComponentPage} />
     </Route>
   </Router>
 ), document.getElementById('react-root'));
