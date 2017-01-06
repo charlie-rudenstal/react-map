@@ -4,7 +4,7 @@ import ComponentList from './ComponentList';
 function IndexPage() {
   return (
     <div>
-      <ComponentList />
+      Select a component in the list
     </div>
   );
 }

@@ -18,18 +18,18 @@ class ComponentList extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>ComponentList</div>
-        <ul>
+      <nav className="navbar">
+        <div className="navbar__title">Components</div>
+        <div className="navbar__items">
           {this.state.components.map(component => (
-            <li key={component.name}>
-              <Link to={`/component/${component.path}`}>
-                {component.name}
-              </Link>
-            </li>
+            <Link to={`/component/${component.path}`}
+              className="navbar__item"
+              activeClassName="navbar__item--active">
+              {component.name}
+            </Link>
           ))}
-        </ul>
-      </div>
+        </div>
+      </nav>
     );
   }
 

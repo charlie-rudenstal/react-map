@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import RootPage from './components/RootPage';
 import IndexPage from './components/IndexPage';
 import ComponentPage from './components/ComponentPage';
+import './styles/index.less';
 
 ReactDom.render((
   <Router history={browserHistory}>

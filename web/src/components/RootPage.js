@@ -8,7 +8,7 @@ function Root({children}) {
       <div>
         <ComponentList />
       </div>
-      <div>{children}</div>
+      <div className={styles.mainContent}>{children}</div>
     </div>
   );
 }

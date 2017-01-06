@@ -4,10 +4,20 @@ class ComponentDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = { component: null };
+    this.fetchComponent = this.fetchComponent.bind(this);
   }
 
   componentDidMount() {
-    fetch(`/api/component/${this.props.path}`)
+    this.fetchComponent(this.props.path);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.path === this.props.path) return;
+    this.fetchComponent(nextProps.path);
+  }
+
+  fetchComponent(path) {
+    fetch(`/api/component/${path}`)
       .then(res => {
         if (!res.ok) throw Error(`Could not fetch component ${this.props.path}`);
         return res.json();
