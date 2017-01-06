@@ -1,9 +1,14 @@
 import React from 'react';
+import ComponentList from './ComponentList';
+import styles from './RootPage.less';
 
 function Root({children}) {
   return (
     <div>
-      {children}
+      <div>
+        <ComponentList />
+      </div>
+      <div>{children}</div>
     </div>
   );
 }

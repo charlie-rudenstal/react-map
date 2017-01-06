@@ -7,7 +7,11 @@ module.exports = [{
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader' }
+      { test: /\.js$/, loader: 'babel-loader' },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      }
     ]
   }
 },{
