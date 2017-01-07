@@ -22,13 +22,17 @@
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
     "css-loader": "^0.26.1",
+    "enzyme": "^2.7.0",
     "expect": "^1.20.2",
+    "fetch-mock": "^5.8.1",
     "jest": "^18.1.0",
+    "jest-enzyme": "^2.1.0-rc1",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.2.1",
+    "react-addons-test-utils": "^15.4.2",
     "react-test-renderer": "^15.4.1",
     "style-loader": "^0.13.1",
     "supertest": "^2.0.1",
@@ -42,6 +46,7 @@
     "react-router": "^3.0.0"
   },
   "jest": {
-    "rootDir": "web"
+    "rootDir": "web",
+    "setupTestFrameworkScriptFile": "../node_modules/jest-enzyme/lib/index.js"
   }
 }

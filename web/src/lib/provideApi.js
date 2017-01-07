@@ -11,6 +11,7 @@ export default function provideApi(
       this.state = { res: null, url: null };
       this.getUrl = this.getUrl.bind(this);
       this.fetchUrl = this.fetchUrl.bind(this);
+      this.isUnmounted = false;
     }
 
     getUrl() {
@@ -30,6 +31,7 @@ export default function provideApi(
       fetch(`/api/${url}`)
         .then(res => res.json())
         .then(res => {
+          if (this.isUnmounted) return;
           this.setState({ res, url });
         });
     }
@@ -43,6 +45,11 @@ export default function provideApi(
       if (nextUrl !== this.state.url) {
         this.fetchUrl(nextUrl);
       }
+    }
+
+    componentWillUnmount() {
+      // Since we don't have cancellable promises
+      this.isUnmounted = true;
     }
 
     render() {
