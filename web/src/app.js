@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import RootPage from './components/RootPage';
-import IndexPage from './components/IndexPage';
-import ComponentPage from './components/ComponentPage';
+import RootPage from './components/pages/RootPage';
+import IndexPage from './components/pages/IndexPage';
+import ComponentPage from './components/pages/ComponentPage';
 import './styles/index.less';
 
 ReactDom.render((

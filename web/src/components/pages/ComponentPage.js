@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import ComponentDetails from './ComponentDetails';
+import ComponentDetails from '../ComponentDetails';
 
 function ComponentPage({ params }) {
   const path = params.splat;

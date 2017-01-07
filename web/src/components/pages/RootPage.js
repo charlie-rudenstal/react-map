@@ -1,8 +1,8 @@
 import React from 'react';
-import ComponentList from './ComponentList';
+import ComponentList from '../ComponentList';
 import styles from './RootPage.less';
 
-function Root({children}) {
+function RootPage({children}) {
   return (
     <div>
       <div>
@@ -13,4 +13,4 @@ function Root({children}) {
   );
 }
 
-export default Root;
+export default RootPage;

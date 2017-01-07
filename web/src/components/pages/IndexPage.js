@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentList from './ComponentList';
+import ComponentList from '../ComponentList';
 
 function IndexPage() {
   return (
