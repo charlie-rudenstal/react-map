@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './Tab.less';
 
 const Tab = ({index, children}) => (
-  <div>Tab: {children}</div>
+  <div className={styles.tab}>{children}</div>
 );
 
 Tab.defaultProps = {
