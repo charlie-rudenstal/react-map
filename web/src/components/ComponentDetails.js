@@ -1,7 +1,7 @@
 import React from 'react';
 import provideApi from '../lib/provideApi';
 
-function ComponentDetails({component}) {
+export function ComponentDetails({component}) {
   if (!component) return <div>Fetching component data...</div>;
   return (
     <div>

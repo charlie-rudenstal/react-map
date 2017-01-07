@@ -1,0 +1,30 @@
+exports[`ComponentList should render correctly 1`] = `
+<nav
+  className="navbar">
+  <div
+    className="navbar__title">
+    Components
+  </div>
+  <div
+    className="navbar__items">
+    <a
+      className="navbar__item"
+      onClick={[Function]}
+      style={Object {}}>
+      Button
+    </a>
+    <a
+      className="navbar__item"
+      onClick={[Function]}
+      style={Object {}}>
+      Tab
+    </a>
+    <a
+      className="navbar__item"
+      onClick={[Function]}
+      style={Object {}}>
+      Tabs
+    </a>
+  </div>
+</nav>
+`;

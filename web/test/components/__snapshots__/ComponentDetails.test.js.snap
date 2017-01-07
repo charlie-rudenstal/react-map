@@ -1,0 +1,55 @@
+exports[`ComponentDetails should render correctly 1`] = `
+<div>
+  <h1>
+    Tabs
+  </h1>
+  <section>
+    <h2>
+      Children
+    </h2>
+    <ul>
+      <li>
+        div
+      </li>
+      <li>
+        Tab
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>
+      Class names
+    </h2>
+    <ul>
+      <li>
+        tabs
+      </li>
+      <li>
+        header
+      </li>
+      <li>
+        header--large
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>
+      Dependencies
+    </h2>
+    <ul>
+      <li>
+        React
+         (
+        react
+        )
+      </li>
+      <li>
+        Tab
+         (
+        ./Tab
+        )
+      </li>
+    </ul>
+  </section>
+</div>
+`;

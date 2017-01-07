@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import provideApi from '../lib/provideApi';
 
-function ComponentList({components}) {
+export function ComponentList({components}) {
   return (
     <nav className="navbar">
       <div className="navbar__title">Components</div>
