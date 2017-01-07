@@ -51,5 +51,17 @@ exports[`ComponentDetails should render correctly 1`] = `
       </li>
     </ul>
   </section>
+  <section>
+    <h2>
+      Preview
+    </h2>
+    <iframe
+      src="/render/component/undefined"
+      style={
+        Object {
+          "border": "none",
+        }
+      } />
+  </section>
 </div>
 `;

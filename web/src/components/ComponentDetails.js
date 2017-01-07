@@ -33,6 +33,11 @@ export function ComponentDetails({component}) {
           ))}
         </ul>
       </section>
+
+      <section>
+        <h2>Preview</h2>
+        <iframe src={`/render/component/${component.path}`} style={{ border: 'none' }} />
+      </section>
     </div>
   );
 }

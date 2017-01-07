@@ -5,7 +5,12 @@ const basePath = "server/test/fixtures";
 
 function getComponents() {
   return fs.readdir(basePath).then(listing => {
-    return listing.map(filename => {
+    return listing
+     .filter(filename => {
+      const ext = filename.substr(filename.lastIndexOf('.'));
+      return ext === '.js';
+     })
+     .map(filename => {
       const name = filename.slice(0, filename.lastIndexOf('.'));
       return {
         name,

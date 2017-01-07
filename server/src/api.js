@@ -24,7 +24,7 @@ api.get('/component/:path(*)', (req, res) => {
     res.status(400).json({error});
   })
   .then(([dependencies, children, classNames]) => {
-    res.json({ name, dependencies, children, classNames });
+    res.json({ name, path, dependencies, children, classNames });
   });
 });
 

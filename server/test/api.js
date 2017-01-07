@@ -23,6 +23,7 @@ describe('api', () => {
       .expect(200,
       {
         name: "Tabs",
+        path: "Tabs.js",
         dependencies: [
           { name: "React", path: "react" }, { name: "Tab", path: "./Tab" }
         ],
