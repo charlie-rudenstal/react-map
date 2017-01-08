@@ -1,6 +1,9 @@
 import React from 'react';
 import provideApi from '../lib/provideApi';
 import styles from './ComponentDetails.less';
+import CodeMirror from 'react-codemirror';
+import 'codemirror/mode/jsx/jsx';
+import 'codemirror/keymap/vim';
 
 export function ComponentDetails({component}) {
   if (!component) return <div>Fetching component data...</div>;
@@ -36,6 +39,13 @@ export function ComponentDetails({component}) {
             <div className="tag" key={item.name}>{item.name} ({item.path})</div>
           ))}
         </div>
+      </section>
+
+      <section className="paper">
+        <h2 className="paper__title">Code</h2>
+        <CodeMirror
+          value={component.code}
+          options={{ mode: 'jsx', lineNumbers: true, readOnly: true, keyMap: 'vim'}} />
       </section>
     </div>
   );

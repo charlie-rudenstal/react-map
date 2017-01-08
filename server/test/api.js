@@ -1,6 +1,7 @@
 import expect from 'expect';
 import request from 'supertest';
 import api from '../src/api';
+import fs from 'fs';
 
 describe('api', () => {
   it('should return a list of all components', done => {
@@ -32,7 +33,8 @@ describe('api', () => {
         ],
         classNames: [
           { name: "header" }, { name: "header--large" }
-        ]
+        ],
+        code: fs.readFileSync('server/test/fixtures/Tabs.js', 'utf-8')
       }, done);
   });
 });

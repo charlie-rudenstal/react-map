@@ -1,6 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { ComponentDetails } from '../../src/components/ComponentDetails';
+jest.mock('react-codemirror');
+jest.mock('codemirror');
 
 describe('ComponentDetails', () => {
   it('should render correctly', () => {
@@ -18,7 +20,8 @@ describe('ComponentDetails', () => {
         { name: "tabs" },
         { name: "header" },
         { name: "header--large" }
-      ]
+      ],
+      code: 'var foo;'
     };
 
     const tree = renderer.create(<ComponentDetails path='/component/tabs' component={component} />).toJSON();

@@ -76,5 +76,12 @@ exports[`ComponentDetails should render correctly 1`] = `
       </div>
     </div>
   </section>
+  <section
+    className="paper">
+    <h2
+      className="paper__title">
+      Code
+    </h2>
+  </section>
 </div>
 `;

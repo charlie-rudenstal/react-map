@@ -56,9 +56,16 @@ function getDependencies(filepath) {
   });
 }
 
+function getCode(filepath) {
+  return readFileCached(`${basePath}/${filepath}`, 'utf-8').then(content => {
+    return content;
+  });
+}
+
 export default {
   getComponents,
   getChildren,
   getClassNames,
-  getDependencies
+  getDependencies,
+  getCode
 }

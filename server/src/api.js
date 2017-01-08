@@ -18,13 +18,14 @@ api.get('/component/:path(*)', (req, res) => {
   Promise.all([
     mapper.getDependencies(path),
     mapper.getChildren(path),
-    mapper.getClassNames(path)
+    mapper.getClassNames(path),
+    mapper.getCode(path)
   ])
   .catch(error => {
     res.status(400).json({error});
   })
-  .then(([dependencies, children, classNames]) => {
-    res.json({ name, path, dependencies, children, classNames });
+  .then(([dependencies, children, classNames, code]) => {
+    res.json({ name, path, dependencies, children, classNames, code });
   });
 });
 

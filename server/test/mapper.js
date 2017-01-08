@@ -1,5 +1,6 @@
 import expect from 'expect';
 import mapper from '../src/Mapper';
+import fs from 'fs';
 
 describe('mapper', () => {
   it('should list all components', () => {
@@ -33,6 +34,12 @@ describe('mapper', () => {
       expect(dependencies).toInclude({name: 'React', path: 'react'});
       expect(dependencies).toInclude({name: 'Tab', path: './Tab'});
       expect(dependencies).toInclude({name: 'styles', path: './Tabs.less'});
+    });
+  });
+
+  it('should return components code', () => {
+    return mapper.getCode('Tabs.js').then(code => {
+      expect(code).toBe(fs.readFileSync('server/test/fixtures/Tabs.js', 'utf-8'));
     });
   });
 });
