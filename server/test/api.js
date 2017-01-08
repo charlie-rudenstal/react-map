@@ -25,13 +25,13 @@ describe('api', () => {
         name: "Tabs",
         path: "Tabs.js",
         dependencies: [
-          { name: "React", path: "react" }, { name: "Tab", path: "./Tab" }
+          { name: "React", path: "react" }, { name: "Tab", path: "./Tab" }, { name: "styles", path: "./Tabs.less" }
         ],
         children: [
           { name: "div" }, { name: "Tab" }
         ],
         classNames: [
-          { name: "tabs" }, { name: "header" }, { name: "header--large" }
+          { name: "header" }, { name: "header--large" }
         ]
       }, done);
   });

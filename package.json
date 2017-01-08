@@ -48,6 +48,9 @@
   },
   "jest": {
     "rootDir": "web",
-    "setupTestFrameworkScriptFile": "../node_modules/jest-enzyme/lib/index.js"
+    "setupTestFrameworkScriptFile": "../node_modules/jest-enzyme/lib/index.js",
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/test/mocks/styleMock.js"
+    }
   }
 }

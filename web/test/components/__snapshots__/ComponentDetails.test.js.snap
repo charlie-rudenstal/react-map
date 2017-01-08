@@ -1,58 +1,10 @@
 exports[`ComponentDetails should render correctly 1`] = `
-<div>
-  <h1>
-    Tabs
-  </h1>
-  <section>
-    <h2>
-      Children
-    </h2>
-    <ul>
-      <li>
-        div
-      </li>
-      <li>
-        Tab
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>
-      Class names
-    </h2>
-    <ul>
-      <li>
-        tabs
-      </li>
-      <li>
-        header
-      </li>
-      <li>
-        header--large
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>
-      Dependencies
-    </h2>
-    <ul>
-      <li>
-        React
-         (
-        react
-        )
-      </li>
-      <li>
-        Tab
-         (
-        ./Tab
-        )
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>
+<div
+  className={undefined}>
+  <section
+    className="paper">
+    <h2
+      className="paper__title">
       Preview
     </h2>
     <iframe
@@ -62,6 +14,67 @@ exports[`ComponentDetails should render correctly 1`] = `
           "border": "none",
         }
       } />
+  </section>
+  <section
+    className="paper">
+    <h2
+      className="paper__title">
+      Children
+    </h2>
+    <div>
+      <div
+        className="tag">
+        div
+      </div>
+      <div
+        className="tag">
+        Tab
+      </div>
+    </div>
+  </section>
+  <section
+    className="paper">
+    <h2
+      className="paper__title">
+      Class names
+    </h2>
+    <div>
+      <div
+        className="tag">
+        tabs
+      </div>
+      <div
+        className="tag">
+        header
+      </div>
+      <div
+        className="tag">
+        header--large
+      </div>
+    </div>
+  </section>
+  <section
+    className="paper">
+    <h2
+      className="paper__title">
+      Dependencies
+    </h2>
+    <div>
+      <div
+        className="tag">
+        React
+         (
+        react
+        )
+      </div>
+      <div
+        className="tag">
+        Tab
+         (
+        ./Tab
+        )
+      </div>
+    </div>
   </section>
 </div>
 `;

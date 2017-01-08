@@ -21,8 +21,7 @@ describe('mapper', () => {
 
   it('should list all class names', () => {
     return mapper.getClassNames('Tabs.js').then(classNames => {
-      expect(classNames.length).toBe(3);
-      expect(classNames).toInclude({name: 'tabs'});
+      expect(classNames.length).toBe(2);
       expect(classNames).toInclude({name: 'header'});
       expect(classNames).toInclude({name: 'header--large'});
     });
@@ -30,9 +29,10 @@ describe('mapper', () => {
 
   it('should list all dependencies', () => {
     return mapper.getDependencies('Tabs.js').then(dependencies => {
-      expect(dependencies.length).toBe(2);
+      expect(dependencies.length).toBe(3);
       expect(dependencies).toInclude({name: 'React', path: 'react'});
       expect(dependencies).toInclude({name: 'Tab', path: './Tab'});
+      expect(dependencies).toInclude({name: 'styles', path: './Tabs.less'});
     });
   });
 });

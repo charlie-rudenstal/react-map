@@ -6,38 +6,36 @@ export function ComponentDetails({component}) {
   if (!component) return <div>Fetching component data...</div>;
   return (
     <div className={styles.content}>
-      <h1>{component.name}</h1>
-
-      <section>
-        <h2>Children</h2>
-        <ul>
-          {component.children.map(item => (
-            <li key={item.name}>{item.name}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h2>Class names</h2>
-        <ul>
-          {component.classNames.map(item => (
-            <li key={item.name}>{item.name}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h2>Dependencies</h2>
-        <ul>
-          {component.dependencies.map(item => (
-            <li key={item.name}>{item.name} ({item.path})</li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h2>Preview</h2>
+      <section className="paper">
+        <h2 className="paper__title">Preview</h2>
         <iframe src={`/render/component/${component.path}`} style={{ border: 'none' }} />
+      </section>
+
+      <section className="paper">
+        <h2 className="paper__title">Children</h2>
+        <div>
+          {component.children.map(item => (
+            <div className="tag" key={item.name}>{item.name}</div>
+          ))}
+        </div>
+      </section>
+
+      <section className="paper">
+        <h2 className="paper__title">Class names</h2>
+        <div>
+          {component.classNames.map(item => (
+            <div className="tag" key={item.name}>{item.name}</div>
+          ))}
+        </div>
+      </section>
+
+      <section className="paper">
+        <h2 className="paper__title">Dependencies</h2>
+        <div>
+          {component.dependencies.map(item => (
+            <div className="tag" key={item.name}>{item.name} ({item.path})</div>
+          ))}
+        </div>
       </section>
     </div>
   );
