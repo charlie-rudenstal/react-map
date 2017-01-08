@@ -1,0 +1,27 @@
+.dock {
+  display: flex;
+  &__item {
+    &--left {
+      flex: 0;
+      background-color: #444;
+      border-right: 1px solid #333;
+    }
+    &--middle {
+      flex: 1;
+    }
+    &--right {
+      flex: 0;
+      background-color: #444;
+      border-left: 1px solid #333;
+    }
+  }
+  &__title {
+    background-color: #777;
+    text-transform: uppercase;
+    color: #ddd;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px;
+    border-bottom: 1px solid #aaa;
+  }
+}

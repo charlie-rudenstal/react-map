@@ -4,18 +4,15 @@ import provideApi from '../lib/provideApi';
 
 export function ComponentList({components}) {
   return (
-    <nav className="navbar">
-      <div className="navbar__title">Components</div>
-      <div className="navbar__items">
-        {components.map(component => (
-          <Link key={component.name}
-            to={`/component/${component.path}`}
-            className="navbar__item"
-            activeClassName="navbar__item--active">
-            {component.name}
-          </Link>
-        ))}
-      </div>
+    <nav className="itemlist">
+      {components.map(component => (
+        <Link key={component.name}
+          to={`/component/${component.path}`}
+          className="itemlist__item"
+          activeClassName="itemlist__item--active">
+          {component.name}
+        </Link>
+      ))}
     </nav>
   );
 }

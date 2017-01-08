@@ -1,10 +1,11 @@
 import React from 'react';
 import provideApi from '../lib/provideApi';
+import styles from './ComponentDetails.less';
 
 export function ComponentDetails({component}) {
   if (!component) return <div>Fetching component data...</div>;
   return (
-    <div>
+    <div className={styles.content}>
       <h1>{component.name}</h1>
 
       <section>
