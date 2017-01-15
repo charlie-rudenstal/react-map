@@ -3,23 +3,22 @@
   &__item {
     &--left {
       flex: 0;
-      background-color: #d7d7d7;
+      background-color: @complement;
     }
     &--middle {
       flex: 1;
     }
     &--right {
       flex: 0;
-      background-color: #d7d7d7;
+      background-color: @complement;
     }
   }
   &__title {
-    background-color: #ddd;
+    background-color: contrast(@complement, darken(@complement, 5), lighten(@complement, 5));
+    color: contrast(@complement);
     text-transform: uppercase;
-    color: #333;
     font-weight: bold;
     font-size: 12px;
     padding: 10px;
-    border-bottom: 1px solid #aaa;
   }
 }

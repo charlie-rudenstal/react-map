@@ -1,15 +1,12 @@
 .navbar {
   display: flex;
   padding: 16px;
-  background-color: #ddd;
-
-  outline: 1px solid white;
-  border-bottom: 1px solid #aaa;
+  background-color: @primary;
 
   &__title {
     font-weight: bold;
     text-transform: uppercase;
-    color: #444;
+    color: contrast(@primary);
   }
 
   &__items {

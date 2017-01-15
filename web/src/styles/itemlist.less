@@ -1,17 +1,23 @@
 .itemlist {
   height: 100%;
   &__item {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 8px;
     color: #333;
+    color: contrast(@complement, #333, #eee);
     text-decoration: none;
+    > svg {
+      padding-right: 7px;
+      color: contrast(@complement);
+    }
     &:hover {
-      background-color: #ccc;
-      color: black;
+      background-color: lighten(@complement, 3);
+      color: contrast(@complement);
     }
     &--active, &--active:hover {
-      background-color: #1e90ff;
-      color: white;
+      background-color: lighten(@complement, 20);
+      color: contrast(@complement);
     }
   }
 }

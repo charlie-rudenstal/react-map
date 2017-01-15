@@ -5,18 +5,48 @@ exports[`ComponentList should render correctly 1`] = `
     className="itemlist__item"
     onClick={[Function]}
     style={Object {}}>
+    <svg
+      height="8"
+      viewBox="0 0 8 8"
+      width="8"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3z"
+        fill="currentColor" />
+    </svg>
+     
     Button
   </a>
   <a
     className="itemlist__item"
     onClick={[Function]}
     style={Object {}}>
+    <svg
+      height="8"
+      viewBox="0 0 8 8"
+      width="8"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3z"
+        fill="currentColor" />
+    </svg>
+     
     Tab
   </a>
   <a
     className="itemlist__item"
     onClick={[Function]}
     style={Object {}}>
+    <svg
+      height="8"
+      viewBox="0 0 8 8"
+      width="8"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3z"
+        fill="currentColor" />
+    </svg>
+     
     Tabs
   </a>
 </nav>

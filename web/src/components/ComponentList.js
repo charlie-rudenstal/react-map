@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { FileIcon } from './icons'
 import provideApi from '../lib/provideApi';
 
 export function ComponentList({components}) {
@@ -10,7 +11,7 @@ export function ComponentList({components}) {
           to={`/component/${component.path}`}
           className="itemlist__item"
           activeClassName="itemlist__item--active">
-          {component.name}
+          <FileIcon /> {component.name}
         </Link>
       ))}
     </nav>
