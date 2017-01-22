@@ -6,8 +6,7 @@ const Tab = ({index, children}) => (
 );
 
 Tab.defaultProps = {
-  children: 'Tab',
-  index: 1
+  children: 'Tab'
 };
 
 Tab.propTypes = {

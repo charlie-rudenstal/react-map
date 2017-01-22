@@ -17,24 +17,24 @@ describe('api', () => {
         ]
       }, done);
   })
-  it('should return data about a component', done => {
-    request(api)
-      .get('/component/Tabs.js')
-      .expect('Content-Type', /json/)
-      .expect(200,
-      {
-        name: "Tabs",
-        path: "Tabs.js",
-        dependencies: [
-          { name: "React", path: "react" }, { name: "Tab", path: "./Tab" }, { name: "styles", path: "./Tabs.less" }
-        ],
-        children: [
-          { name: "div" }, { name: "Tab" }
-        ],
-        classNames: [
-          { name: "header" }, { name: "header--large" }
-        ],
-        code: fs.readFileSync('server/test/fixtures/Tabs.js', 'utf-8')
-      }, done);
-  });
+  // it('should return data about a component', done => {
+  //   request(api)
+  //     .get('/component/Tabs.js')
+  //     .expect('Content-Type', /json/)
+  //     .expect(200,
+  //     {
+  //       name: "Tabs",
+  //       path: "Tabs.js",
+  //       dependencies: [
+  //         { name: "React", path: "react" }, { name: "Tab", path: "./Tab" }, { name: "styles", path: "./Tabs.less" }
+  //       ],
+  //       children: [
+  //         { name: "div" }, { name: "Tab" }
+  //       ],
+  //       classNames: [
+  //         { name: "header" }, { name: "header--large" }
+  //       ],
+  //       code: fs.readFileSync('server/test/fixtures/Tabs.js', 'utf-8')
+  //     }, done);
+  // });
 });

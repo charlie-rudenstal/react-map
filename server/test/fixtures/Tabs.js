@@ -5,7 +5,7 @@ import styles from './Tabs.less';
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentTab: this.getTabs()[0] }
+    this.state = { currentTab: this.getTabs()[this.props.initialTab] }
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
     this.getTabs = this.getTabs.bind(this);
   }
@@ -48,11 +48,13 @@ Tabs.defaultProps = {
     <Tab name="First">First tab</Tab>,
     <Tab name="Second">Second tab</Tab>,
     <Tab name="Third">Third tab</Tab>
-  ]
+  ],
+  initialTab: 0
 };
 
 Tabs.propTypes = {
-  children: React.PropTypes.arrayOf(React.PropTypes.object)
+  children: React.PropTypes.arrayOf(React.PropTypes.object),
+  initialTab: React.PropTypes.number
 };
 
 export default Tabs;

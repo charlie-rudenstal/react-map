@@ -1,5 +1,6 @@
 import React from 'react';
 import ComponentList from '../ComponentList';
+import PropList from '../PropList';
 
 function RootPage({children}) {
   return (
@@ -19,6 +20,7 @@ function RootPage({children}) {
         </div>
         <div className="dock__item dock__item--right" style={{ minWidth: 250 }}>
           <div className="dock__title">Props</div>
+          <PropList />
         </div>
       </div>
     </div>

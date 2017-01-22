@@ -19,13 +19,14 @@ api.get('/component/:path(*)', (req, res) => {
     mapper.getDependencies(path),
     mapper.getChildren(path),
     mapper.getClassNames(path),
-    mapper.getCode(path)
+    mapper.getCode(path),
+    mapper.getProps(path)
   ])
   .catch(error => {
-    res.status(400).json({error});
+    res.status(400).json({error: error.toString()});
   })
-  .then(([dependencies, children, classNames, code]) => {
-    res.json({ name, path, dependencies, children, classNames, code });
+  .then(([dependencies, children, classNames, code, props]) => {
+    res.json({ name, path, dependencies, children, classNames, code, props });
   });
 });
 

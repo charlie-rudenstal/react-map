@@ -42,4 +42,19 @@ describe('mapper', () => {
       expect(code).toBe(fs.readFileSync('server/test/fixtures/Tabs.js', 'utf-8'));
     });
   });
+
+  // it('should return props from propTypes', () => {
+  //   return mapper.getProps('Tabs.js').then(props => {
+  //     expect(props.length).toBe(2);
+  //     expect(props).toInclude({ name: 'children', type: 'arrayOf(object)' });
+  //     expect(props).toInclude({ name: 'initialTab', type: 'number' });
+  //   })
+  // });
+
+  // it('should return complex props from propType', () => {
+  //   return mapper.getProps('Button.js').then(props => {
+  //     expect(props.length).toBe(1);
+  //     expect(props).toInclude({ name: 'children', type: 'oneOfType([element, string])' });
+  //   })
+  // })
 });

@@ -62,10 +62,37 @@ function getCode(filepath) {
   });
 }
 
+function getProps(filepath) {
+  return readFileCached(`${basePath}/${filepath}`, 'utf-8').then(content => {
+    const strPropTypes = regMatch(/[^\.]+.propTypes\s?=\s{([\s\S]*)}/g, content);
+    if (!strPropTypes || !strPropTypes.length) return [];
+    // console.log('strPropTypes', strPropTypes);
+    console.log(strPropTypes[0].split(','));
+    const propTypes = strPropTypes[0].split(',')
+      // Remove empty newlines
+      .filter(p => p.length)
+      // Remove React.PropTypes prefix and trailing commas
+      .map(p => {
+        p = p.replace(/React\.PropTypes\./g, '');
+        p = p[p.length - 1] === ',' ? p.slice(0, -1) : p;
+        return p;
+      })
+      // Extract prop name and prop type
+      .reduce((o, p) => {
+        const name = p.substr(0, p.indexOf(':')).trim();
+        const type = p.substr(p.indexOf(':') + 1).trim();
+        o.push({ name, type });
+        return o;
+      }, []);
+    return propTypes;
+  });
+}
+
 export default {
   getComponents,
   getChildren,
   getClassNames,
   getDependencies,
-  getCode
+  getCode,
+  getProps
 }

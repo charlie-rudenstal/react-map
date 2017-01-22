@@ -15,7 +15,9 @@ Button.propTypes = {
   children: React.PropTypes.oneOfType([
     React.PropTypes.element,
     React.PropTypes.string
-  ])
+  ]),
+  a: 'foo',
+  b: 'bar'
 };
 
 export default Button;
